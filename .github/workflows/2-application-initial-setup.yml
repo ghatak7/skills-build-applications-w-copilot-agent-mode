@@ -134,9 +134,7 @@ jobs:
           issue-number: ${{ env.ISSUE_NUMBER }}
           file: exercise-toolkit/markdown-templates/step-feedback/watching-for-progress.md
 
-      - name: Disable current workflow and enable next one
+      - name: Note: manual enable of next workflow
         run: |
-          gh workflow disable "${{github.workflow}}"
-          gh workflow enable ".github/workflows/3-database-django-project-setup.yml"
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          echo "Posted next step content to the issue."
+          echo "If you want automated transitions, enable the next workflow (.github/workflows/3-database-django-project-setup.yml) via the Actions UI or provide a PAT for gh in your runner."
