@@ -1,0 +1,27 @@
+name: Step 2 (placeholder)
+
+# Minimal placeholder for Step 2 so gh workflow enable "Step 2" resolves.
+# This file intentionally mirrors the trigger used by the actual Step 2 implementation
+# but contains a no-op job so enabling/disabling succeeds.
+
+on:
+  push:
+    branches:
+      - "build-octifit-app"
+    paths:
+      - "octofit-tracker/backend/requirements.txt"
+
+permissions:
+  contents: read
+  actions: write
+  issues: write
+
+jobs:
+  noop:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: No-op
+        run: echo "Step 2 placeholder workflow — no operations"
